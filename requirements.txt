@@ -1,3 +1,4 @@
+-r requirements-dev.txt
 Django==1.7.7
 Unipath==1.0
 dj-database-url==0.3.0
