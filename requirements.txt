@@ -1,5 +1,6 @@
 -r requirements-dev.txt
 Django==1.7.7
+django-paypal==0.2.1
 Unipath==1.0
 dj-database-url==0.3.0
 dj-static==0.0.6
