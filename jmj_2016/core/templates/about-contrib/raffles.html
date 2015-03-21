@@ -24,6 +24,24 @@
 <h4>Two Column</h4>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros amet soll Suspendisse pulvinar, velit nec pharetra interdum, ante tellus ornare mi, et mollis tellusne auris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada. </p>
 </div>
+<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+<form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+        <!-- Campos obrigatórios -->
+<input name="receiverEmail" type="hidden" value="alexsanderfalcucci@hotmail.com">
+<input name="currency" type="hidden" value="BRL">
+
+<!-- Itens do pagamento (ao menos um item é obrigatório) -->
+<input name="itemId1" type="hidden" value="0001">
+<input name="itemDescription1" type="hidden" value="Notebook Prata">
+<input name="itemAmount1" type="hidden" value="5.00">
+<input name="itemQuantity1" type="hidden" value="2">
+
+<input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-pagar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+</form>
+<!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+
+
 </div>
 </div>
 {% endblock content %}
