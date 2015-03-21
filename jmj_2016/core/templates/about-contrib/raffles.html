@@ -1,5 +1,12 @@
 {% extends "core/base.html" %}
 
+{% block extra_style %}
+<style type="text/css" media="screen">
+
+
+</style>
+{% endblock extra_style %}
+<link href=" {% static 'css/raffles/list-tick.css' %}" rel="stylesheet">
 {% block content %}
 <div class="subpage-head has-margin-bottom">
 	<div class="container">
@@ -10,11 +17,12 @@
 <div class="container has-margin-bottom">
 <div class="row">
 <div class="col-md-12">
-<p class="lead"> Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. </p>
+<p class="lead"> Fazer uma edição internacional da JMJ acontecer não é tarefa fácil para qualquer arquidiocese. Mas católicos e homens de boa vontade de todas as partes do mundo podem ajudar. Para isso, o Comitê Organizador Local (COL) da Jornada Mundial da Juventude de 2016 divulgou na semana passada, dia 4 de fevereiro, as formas de contribuir com a Arquidiocese de Cracóvia. </p>
+{% include 'about-contrib/list-raffles.html' %}
 </div>
 <div class="col-md-12">
 <h4>One Column</h4>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros amet sollicitudin interdum. Suspendisse pulvinar, velit nec pharetra interdum, ante tellus ornare mi, etn elit. Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Nulla vitae elit libero, an id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+<p>Fazer uma edição internacional da JMJ acontecer não é tarefa fácil para qualquer arquidiocese. Mas católicos e homens de boa vontade de todas as partes do mundo podem ajudar. Para isso, o Comitê Organizador Local (COL) da Jornada Mundial da Juventude de 2016 divulgou na semana passada, dia 4 de fevereiro, as formas de contribuir com a Arquidiocese de Cracóvia.</p>
 </div>
 <div class="col-sm-6 col-md-6">
 <h4>Two Column</h4>
@@ -23,9 +31,8 @@
 <div class="col-sm-6 col-md-6">
 <h4>Two Column</h4>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros amet soll Suspendisse pulvinar, velit nec pharetra interdum, ante tellus ornare mi, et mollis tellusne auris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada. </p>
-</div>
 <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-<form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+<form target="_blank" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
 <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
         <!-- Campos obrigatórios -->
 <input name="receiverEmail" type="hidden" value="alexsanderfalcucci@hotmail.com">
@@ -40,8 +47,54 @@
 <input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-pagar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
 </form>
 <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+</div>
 
 
 </div>
 </div>
 {% endblock content %}
+
+{% block extra_js %}
+<script type="text/javascript" charset="utf-8">
+(function(){ 
+  var speed = 900,
+      containers = document.querySelectorAll(".display-animation");
+  for(var c = 0; c < containers.length; c++){
+    var container = containers[c],
+        children = container.children;
+    
+    if(!container.classList.contains("delay-set")){
+      container.classList.add("delay-set");
+      
+      for(var i = 0; i < children.length; i++){
+        var child = children[i],
+            childOffset = child.getBoundingClientRect(),
+            offset = childOffset.left*0.8 + childOffset.top,
+            delay = parseFloat(offset/speed).toFixed(2);
+        
+        child.style.webkitTransitionDelay = delay + "s";
+        child.style.transitionDelay = delay + "s";
+      }
+    }
+    container.classList.add("animating-in");
+ }
+})();
+
+
+var buttons = document.getElementsByTagName("button"),
+    containers = document.querySelectorAll(".display-animation");
+
+for(var i = 0; i < buttons.length; i++){
+ buttons[i].addEventListener("click", function(e){
+   var attr = this.getAttribute("data-animation"),
+       opposite = attr == "in" ? "out" : "in";
+   console.log(attr);
+   for(var c = 0; c < containers.length; c++){
+     containers[c].classList.remove("animating-" + opposite);
+     containers[c].classList.add("animating-" + attr);
+   }
+ }, false);
+}
+
+</script>
+{% endblock extra_js %}

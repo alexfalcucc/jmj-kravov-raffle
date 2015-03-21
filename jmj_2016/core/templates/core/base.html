@@ -63,6 +63,12 @@
 <script src="{% static 'js/fancybox.js' %}"> </script>
 
 <script>
+$('ul.nav > li > a[href="' + document.location.pathname + '"]').parent().addClass('active');
+</script>
+
+<script>
+
+
 $('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
