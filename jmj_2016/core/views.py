@@ -12,5 +12,9 @@ class AboutContribView(TemplateView):
     template_name = 'about-contrib/raffles.html'
 
 
+class AboutWydView(TemplateView):
+    template_name = 'about-wyd/history.html'
+
+
 def home(request):
     return render(request, 'home.html')
